@@ -31,7 +31,7 @@ const About = () => {
                         <p className='about-description'>
                             I am from India, mumbai. I am passionate about coding and building cool stuffs with it. I love to build dynamic and responsive websites for my client's. My ultimate motive is to solve my client's problem using the best technologies available and to provide the best services.
                         </p>
-                        <p className='about-description mt-0'>
+                        <p className='about-description mt-0 ok'>
                             I like to work with new people, learn new things, and do stuffs which would help me grow in future. I love to read motivational books and play cricket in my free time.
                         </p>
                         <div className='d-flex gap-3 mt-4'>
