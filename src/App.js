@@ -5,7 +5,7 @@ import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { GiHamburgerMenu } from 'react-icons/gi'
-import { Col, Row } from 'react-bootstrap';
+import { Col, Modal, Row } from 'react-bootstrap';
 import me from './assets/me.jpg'
 import { BsHouseDoorFill } from 'react-icons/bs'
 import { AiOutlineUser } from 'react-icons/ai'
@@ -16,18 +16,23 @@ import { GrFacebookOption } from 'react-icons/gr';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { AiOutlineTwitter } from 'react-icons/ai'
+import Home from './components/Home';
+import About from './components/About';
+import EducationDetails from './components/EducationDetails';
+import Experience from './components/Experience';
+import Portfolio from './components/Portfolio';
+import Contact from './components/Contact';
 
 function App() {
-  const [show, setShow] = useState(true);
-  const handleClose = () => setShow(false);
-
   // Below function is used to toggle offcanvas
-  const handleShow = () => {
+  const toggleSidebar = () => {
+    console.log('calllllllleeeeeeeddddd');
     const leftHeader = document.querySelector(".left-header");
     const mainContent = document.querySelector(".main-content");
 
-    leftHeader.classList.toggle("close-offcanvas");
-    mainContent.classList.toggle("expand-main-content");
+    leftHeader.classList.toggle("close-header");
+    // mainContent.classList.toggle("expand-main-content");
+    // mainContent.classList.add("expand-main-content");
   }
 
   // Below function will automatically toggle offcanvas on page rezise condition
@@ -38,13 +43,22 @@ function App() {
       const documentWidth = document.body.clientWidth;
 
 
-      if (documentWidth <= 800) {
-        leftHeader.classList.add("close-offcanvas");
-        mainContent.classList.add("expand-main-content");
+      // if (documentWidth <= 1200) {
+      //   leftHeader.classList.add("close-offcanvas");
+      //   mainContent.classList.add("expand-main-content");
 
+      // } else {
+      //   leftHeader.classList.remove("close-offcanvas");
+      //   mainContent.classList.remove("expand-main-content")
+      // }
+
+
+      if (documentWidth <= 1200) {
+        leftHeader.classList.add("close-header");
+        // mainContent.classList.add("expand-main-content");
       } else {
-        leftHeader.classList.remove("close-offcanvas");
-        mainContent.classList.remove("expand-main-content")
+        leftHeader.classList.remove("close-header");
+        // mainContent.classList.remove("expand-main-content");
       }
     }
 
@@ -70,28 +84,28 @@ function App() {
 
         <div className='left-header-navigation'>
           <Row className=''>
-            <a href="#" className='nav-links'>
+            <a href="#home" className='nav-links'>
               <Col className='ms-4 col-12'>
                 <span className='me-2 navigation-icons'><BsHouseDoorFill /></span>
                 <span className='naviagtion-text'>HOME</span>
               </Col>
             </a>
-            <a href="#" className='nav-links'>
+            <a href="#about" className='nav-links'>
               <Col className='ms-4 col-12'>
                 <span className='me-2 navigation-icons'><AiOutlineUser /></span>
                 <span className='naviagtion-text'>ABOUT ME</span>
               </Col></a>
-            <a href="#" className='nav-links'>
+            <a href="#experience" className='nav-links'>
               <Col className='ms-4 col-12'>
                 <span className='me-2 navigation-icons'><MdOutlineMiscellaneousServices /></span>
-                <span className='naviagtion-text'>SERVICES</span>
+                <span className='naviagtion-text'>EXPERIENCE & SKILLS</span>
               </Col></a>
-            <a href="#" className='nav-links'>
+            <a href="#portfolio" className='nav-links'>
               <Col className='ms-4 col-12'>
                 <span className='me-2 navigation-icons'><RiSlideshowFill /></span>
                 <span className='naviagtion-text'>PORTFOLIO</span>
               </Col></a>
-            <a href="#" className='nav-links'>
+            <a href="#contact" className='nav-links'>
               <Col className='ms-4 col-12'>
                 <span className='me-2 navigation-icons'><TfiMapAlt /></span>
                 <span className='naviagtion-text'>CONTACT ME</span>
@@ -130,13 +144,42 @@ function App() {
 
       </div>
 
-      <main className='main-content'>
-        <div className='d-flex justify-content-end'>
-          <GiHamburgerMenu onClick={handleShow} />
+      <main className='main-content' style={{ backgroundColor: '#10101A' }}>
+        <div className='d-flex justify-content-end toggle-offcanvas-div'>
+          <GiHamburgerMenu onClick={toggleSidebar} className="toggle-offcanvas-btn" style={{ display: 'none' }} />
         </div>
-        hi
-      </main>
 
+        {/* Home component starts here */}
+        <section>
+          <Home />
+        </section>
+
+        {/* About component starts here */}
+        <section>
+          <About />
+        </section>
+
+        {/* Education details component starts here */}
+        <section>
+          <EducationDetails />
+        </section>
+
+        {/* Experience details starts here */}
+        <section>
+          <Experience />
+        </section>
+
+        {/* Portfolio details starts here */}
+        <section>
+          <Portfolio />
+        </section>
+
+        {/* Contact me starts here */}
+
+        <section>
+          <Contact />
+        </section>
+      </main>
     </>
   )
 }
