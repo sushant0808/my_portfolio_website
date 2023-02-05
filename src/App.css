@@ -30,7 +30,7 @@ body {
   position: fixed;
   width: 250px;
   left: 0px;
-  z-index: 222;
+  z-index: 1222;
 }
 
 .left-header.close-header {
