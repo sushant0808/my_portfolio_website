@@ -29,11 +29,18 @@ const About = () => {
                         </h3>
                         <p className='about-subtitle'>I'm a Full Stack Developer with over 1 year of experience.</p>
                         <p className='about-description'>
+                            I am from Mumbai, India. I'm really into coding and doing great things with it. I like developing dynamic and responsive websites for my clients. My ultimate goal is to address my client's problem with the finest available technology and to deliver the finest services.
+                        </p>
+                        <p className='about-description mt-0 ok'>
+                            I enjoy working with new people, learning new things, and doing things that will help me advance in the future. In my spare time, I enjoy reading motivational literature and playing cricket.
+                        </p>
+
+                        {/* <p className='about-description'>
                             I am from India, mumbai. I am passionate about coding and building cool stuffs with it. I love to build dynamic and responsive websites for my client's. My ultimate motive is to solve my client's problem using the best technologies available and to provide the best services.
                         </p>
                         <p className='about-description mt-0 ok'>
                             I like to work with new people, learn new things, and do stuffs which would help me grow in future. I love to read motivational books and play cricket in my free time.
-                        </p>
+                        </p> */}
                         <div className='d-flex gap-3 mt-4'>
                             <a href='#contact' className='download-cv-btn'>
                                 Contact Me
