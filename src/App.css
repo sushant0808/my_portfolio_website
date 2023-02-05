@@ -8,6 +8,10 @@ a {
   text-decoration: none !important;
 }
 
+body {
+  overflow-x: hidden !important;
+}
+
 
 .about-container,
 .education-container,
@@ -446,6 +450,47 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.scale-in-bottom {
+  -webkit-animation: scale-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: scale-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes scale-in-bottom {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in-bottom {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    opacity: 1;
+  }
+}
+
 /* Media queries */
 /* @media only screen and (min-width: 1200px) and (max-width: 1400px){
 
@@ -517,6 +562,7 @@ a {
     position: fixed;
     width: 100%;
     background-color: #10101A;
+    z-index: 1000;
     /* background-color: red; */
   }
 
