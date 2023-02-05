@@ -167,6 +167,7 @@ body {
   box-shadow: 4px 4px #fff;
   letter-spacing: 0.15rem;
   font-weight: 400;
+  border: 0;
 }
 
 .download-cv-btn:hover {
