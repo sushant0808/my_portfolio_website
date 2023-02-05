@@ -22,8 +22,15 @@ import EducationDetails from './components/EducationDetails';
 import Experience from './components/Experience';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+
+  useEffect(() => {
+    Aos.init({ duration: 2000 })
+  }, [])
+
   // Below function is used to toggle offcanvas
   const toggleSidebar = () => {
     console.log('calllllllleeeeeeeddddd');
@@ -37,9 +44,19 @@ function App() {
 
   // Below function will automatically toggle offcanvas on page rezise condition
   function handleOffcanvasDisplay() {
+    const leftHeader = document.querySelector(".left-header");
+    const documentWidth = document.body.clientWidth;
+
+    // Here below if and else will execute when page is loaded for the first time, and in that case I want the offcanvas to be closed when website is viewed in device whose screen size is less than 1200px
+    if (documentWidth <= 1200) {
+      console.log('Executed')
+      leftHeader.classList.add("close-header");
+    } else {
+      leftHeader.classList.remove("close-header");
+    }
+
     window.onresize = () => {
       const leftHeader = document.querySelector(".left-header");
-      const mainContent = document.querySelector(".main-content");
       const documentWidth = document.body.clientWidth;
 
 
@@ -55,10 +72,8 @@ function App() {
 
       if (documentWidth <= 1200) {
         leftHeader.classList.add("close-header");
-        // mainContent.classList.add("expand-main-content");
       } else {
         leftHeader.classList.remove("close-header");
-        // mainContent.classList.remove("expand-main-content");
       }
     }
 
@@ -155,28 +170,28 @@ function App() {
         </section>
 
         {/* About component starts here */}
-        <section>
+        <section data-aos="fade-up">
           <About />
         </section>
 
         {/* Education details component starts here */}
-        <section>
+        <section data-aos="fade-up">
           <EducationDetails />
         </section>
 
         {/* Experience details starts here */}
-        <section>
+        <section data-aos="flip-left">
           <Experience />
         </section>
 
         {/* Portfolio details starts here */}
-        <section>
+        <section data-aos="fade-up">
           <Portfolio />
         </section>
 
         {/* Contact me starts here */}
 
-        <section>
+        <section data-aos="fade-up">
           <Contact />
         </section>
       </main>
