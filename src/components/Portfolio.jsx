@@ -25,6 +25,7 @@ const Portfolio = () => {
     }, [])
 
     const setActiveTab = (activeProjectType) => {
+
         // Below I am setting the active tab clicked by user
         setActive({
             activeTab: activeProjectType,
@@ -32,6 +33,9 @@ const Portfolio = () => {
 
         // Below if will work and show all the projects if user clicks on all tab
         if (activeProjectType === 'all') {
+            document.querySelectorAll(".portfolio-col").forEach((el) => {
+                el.classList.add("scale-in-bottom")
+            })
             return setProjectsForActiveTab(data);
         }
 
@@ -41,7 +45,9 @@ const Portfolio = () => {
             return proj.projectType === activeProjectType
         })
 
+        
         setProjectsForActiveTab(projectsForActiveTab);
+        
     }
 
     console.log('active', active);
@@ -60,8 +66,12 @@ const Portfolio = () => {
                     <Col className='mt-4' lg={12}>
                         <div className='tabs-links-div'>
                             <ul>
-                                <li className={active.activeTab === 'all' ? 'active' : ''} onClick={() => setActiveTab('all')}>All</li>
-                                <li className={active.activeTab === 'front' ? 'active' : ''} onClick={() => setActiveTab('front')}>Front End</li>
+                                <li className={active.activeTab === 'all' ? 'active' : ''} onClick={() => {
+                                    setActiveTab('all')
+                                }}>All</li>
+                                <li className={active.activeTab === 'front' ? 'active' : ''} onClick={() => {
+                                    setActiveTab('front')
+                                }}>Front End</li>
                                 <li className={active.activeTab === 'full' ? 'active' : ''} onClick={() => setActiveTab('full')}>Full Stack</li>
                             </ul>
                         </div>

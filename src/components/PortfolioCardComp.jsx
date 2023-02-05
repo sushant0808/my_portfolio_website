@@ -1,8 +1,15 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { Button, Card, Col, Container, Row } from 'react-bootstrap'
 import { data } from '../projectData'
 
 const PortfolioCardComp = ({ projectsForActiveTab, showProjectDetailsModalHandler, setProjectDetailsForModal }) => {
+
+    useEffect(() => {
+        document.querySelectorAll(".portfolio-col").forEach((el) => {
+            el.classList.add("scale-in-bottom")
+        })
+    }, [projectsForActiveTab])
 
 
     const viewProjectDetailsHandler = (projData) => {
